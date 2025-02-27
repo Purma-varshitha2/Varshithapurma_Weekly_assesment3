@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 class Program
 {
     static void Main()
     {
-        
-        ILogger fileLogger = new FileLogger();
-
-        ILogger timestampLogger = new TimestampDecorator(fileLogger);
+        Console.WriteLine("Fetching ConfigurationManager Instance...");
 
         
-        ILogger errorLogger = new ErrorCategoryDecorator(timestampLogger, "ERROR");
+        Parallel.Invoke(
+            () => { ConfigurationManager config1 = ConfigurationManager.Instance; },
+            () => { ConfigurationManager config2 = ConfigurationManager.Instance; }
+        );
 
-      
-        errorLogger.Log("An error occurred while processing the request.");
+        ConfigurationManager config = ConfigurationManager.Instance;
+        Console.WriteLine(config.GetConfigValue("AppTheme"));
     }
 }
