@@ -4,12 +4,15 @@ class Program
 {
     static void Main()
     {
-        // Creating a Person reference for a Student
-        Person student = new Student { Name = "Jay", Age = 20, Course = "Computer Science" };
-        student.GetDetails(); // Calls overridden method in Student
+        Calculator calc = new Calculator();
 
-        // Creating a Person reference for a Teacher
-        Person teacher = new Teacher { Name = "Ram", Age = 45, Subject = "Mathematics" };
-        teacher.GetDetails(); // Calls overridden method in Teacher
+        // Calling Add() with two integers
+        Console.WriteLine("Sum of 5 and 10 : " + calc.Add(5, 10));
+
+        // Calling Add() with three integers
+        Console.WriteLine("Sum of 5, 10, and 15 : " + calc.Add(5, 10, 15));
+
+        // Calling Add() with two double values
+        Console.WriteLine("Sum of 5.5 and 2.5 : " + calc.Add(5.5, 2.5));
     }
 }
