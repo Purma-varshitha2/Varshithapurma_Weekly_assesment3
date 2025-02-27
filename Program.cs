@@ -4,35 +4,19 @@ class Program
 {
     static void Main()
     {
-      
-        Manager manager1 = new Manager("Vinny");
-        Department dept1 = new Department("HR", manager1);
+        Bank acc1 = new Bank("Ajay", 10000);
+        Bank acc2 = new Bank("Bunny", 15000);
 
-        Console.WriteLine("Original Department:");
-        dept1.Display();
+        Console.WriteLine("Initial Interest Rate for All Accounts:");
+        acc1.DisplayAccountDetails();
+        acc2.DisplayAccountDetails();
 
+        
+        Bank.SetInterestRate(4.5);
 
-        Department shallowCopy = dept1.ShallowCopy();
-        Console.WriteLine("\nAfter Shallow Copy:");
-        shallowCopy.Display();
-
-   
-        shallowCopy.Manager.Name = "Ram";
-
-        Console.WriteLine("\nAfter modifying Manager in Shallow Copy:");
-        Console.WriteLine("Original Department:");
-        dept1.Display();
-        Console.WriteLine("Shallow Copy Department:");
-        shallowCopy.Display();
-        Department deepCopy = dept1.DeepCopy();
-        Console.WriteLine("\nAfter Deep Copy:");
-        deepCopy.Display();
-        deepCopy.Manager.Name = "Suni";
-
-        Console.WriteLine("\nAfter modifying Manager in Deep Copy:");
-        Console.WriteLine("Original Department:");
-        dept1.Display();
-        Console.WriteLine("Deep Copy Department:");
-        deepCopy.Display();
+        Console.WriteLine("\nAfter Changing Interest Rate:");
+        acc1.DisplayAccountDetails();
+        acc2.DisplayAccountDetails();
     }
 }
+
