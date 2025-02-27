@@ -4,17 +4,15 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Enter vehicle type (Car/Bike): ");
-        string input = Console.ReadLine();
+        
+        ILogger fileLogger = new FileLogger();
 
-        try
-        {
-            IVehicle vehicle = VehicleFactory.GetVehicle(input);
-            vehicle.Drive();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
+        ILogger timestampLogger = new TimestampDecorator(fileLogger);
+
+        
+        ILogger errorLogger = new ErrorCategoryDecorator(timestampLogger, "ERROR");
+
+      
+        errorLogger.Log("An error occurred while processing the request.");
     }
 }
