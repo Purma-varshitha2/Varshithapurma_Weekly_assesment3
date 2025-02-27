@@ -4,15 +4,11 @@ class Program
 {
     static void Main()
     {
-        Calculator calc = new Calculator();
+        // Using IPlayable reference
+        IPlayable music = new MusicPlayer();
+        music.Play(); // Calls Play() from MusicPlayer
 
-        // Calling Add() with two integers
-        Console.WriteLine("Sum of 5 and 10 : " + calc.Add(5, 10));
-
-        // Calling Add() with three integers
-        Console.WriteLine("Sum of 5, 10, and 15 : " + calc.Add(5, 10, 15));
-
-        // Calling Add() with two double values
-        Console.WriteLine("Sum of 5.5 and 2.5 : " + calc.Add(5.5, 2.5));
+        IPlayable video = new VideoPlayer();
+        video.Play(); // Calls Play() from VideoPlayer
     }
 }
