@@ -4,14 +4,35 @@ class Program
 {
     static void Main()
     {
-    
-        ComplexNumber num1 = new ComplexNumber(1, 2);
-        ComplexNumber num2 = new ComplexNumber(3, 4);
+      
+        Manager manager1 = new Manager("Vinny");
+        Department dept1 = new Department("HR", manager1);
 
-        ComplexNumber result = num1 + num2;
+        Console.WriteLine("Original Department:");
+        dept1.Display();
 
-        Console.WriteLine($"First Complex Number: {num1}");
-        Console.WriteLine($"Second Complex Number: {num2}");
-        Console.WriteLine($"Sum: {result}");
+
+        Department shallowCopy = dept1.ShallowCopy();
+        Console.WriteLine("\nAfter Shallow Copy:");
+        shallowCopy.Display();
+
+   
+        shallowCopy.Manager.Name = "Ram";
+
+        Console.WriteLine("\nAfter modifying Manager in Shallow Copy:");
+        Console.WriteLine("Original Department:");
+        dept1.Display();
+        Console.WriteLine("Shallow Copy Department:");
+        shallowCopy.Display();
+        Department deepCopy = dept1.DeepCopy();
+        Console.WriteLine("\nAfter Deep Copy:");
+        deepCopy.Display();
+        deepCopy.Manager.Name = "Suni";
+
+        Console.WriteLine("\nAfter modifying Manager in Deep Copy:");
+        Console.WriteLine("Original Department:");
+        dept1.Display();
+        Console.WriteLine("Deep Copy Department:");
+        deepCopy.Display();
     }
 }
