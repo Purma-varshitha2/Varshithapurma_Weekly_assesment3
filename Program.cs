@@ -4,9 +4,12 @@ class Program
 {
     static void Main()
     {
-        SecuritySystem system = new SecuritySystem("Main Gate");
-
       
-        system.PerformSecurityCheck();
+        Button submitButton = new Button("Submit");
+
+        submitButton.OnClick += () => Console.WriteLine("Submit action executed!");
+
+        submitButton.Click();
     }
 }
+
