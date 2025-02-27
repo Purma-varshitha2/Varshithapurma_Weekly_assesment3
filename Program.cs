@@ -4,12 +4,17 @@ class Program
 {
     static void Main()
     {
-      
-        Button submitButton = new Button("Submit");
+        Console.Write("Enter vehicle type (Car/Bike): ");
+        string input = Console.ReadLine();
 
-        submitButton.OnClick += () => Console.WriteLine("Submit action executed!");
-
-        submitButton.Click();
+        try
+        {
+            IVehicle vehicle = VehicleFactory.GetVehicle(input);
+            vehicle.Drive();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 }
-

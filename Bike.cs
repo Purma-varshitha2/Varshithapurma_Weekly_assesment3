@@ -1,8 +1,9 @@
 ﻿using System;
-public class  Bike:Vehicle
+
+public class Bike : IVehicle
 {
-    public override void Start()
+    public void Drive()
     {
-        Console.WriteLine("The bike is starting with a self start button...");
+        Console.WriteLine("Riding a bike...");
     }
 }

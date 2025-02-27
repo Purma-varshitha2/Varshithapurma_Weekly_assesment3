@@ -1,7 +1,9 @@
-﻿public class Car : Vehicle
+﻿using System;
+
+public class Car : IVehicle
 {
-    public override void Start()
+    public void Drive()
     {
-        Console.WriteLine("The Car is starting with a key ignition...");
+        Console.WriteLine("Driving a car...");
     }
 }
