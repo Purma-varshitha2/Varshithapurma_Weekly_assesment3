@@ -4,11 +4,18 @@ class Program
 {
     static void Main()
     {
-        // Using IPlayable reference
-        IPlayable music = new MusicPlayer();
-        music.Play(); // Calls Play() from MusicPlayer
+        Report report = new Report
+        {
+            Title = "Monthly Sales Report",
+            Content = "This report contains the sales data for the month."
+        };
 
-        IPlayable video = new VideoPlayer();
-        video.Play(); // Calls Play() from VideoPlayer
+        // Using IPrintable interface
+        IPrintable printableReport = report;
+        printableReport.Print(); // Calls Print() method
+
+        // Using ISerializable interface
+        ISerializable serializableReport = report;
+        serializableReport.SaveToFile("report.txt"); // Calls SaveToFile() method
     }
 }
